@@ -1,0 +1,110 @@
+\begin{enumerate}
+
+\item[\textbf{0.}] \textbf{Who did you work with?}
+
+List all your collaborators, including KUnet ID on this homework. If you have no collaborators, please list ``none''.
+
+\iffull
+\answer{\newline cbh239 - Casper Lützhøft Christensen\\
+mhb558 - Tor-Salve Dalsgaard\\
+ncp698 - Aidan Salzmann\\}
+\fi
+
+\pagebreak
+
+%------------------------------------------------------------------------------------ 4.29, 4.13, 5.4, 5.28, 5.18b
+
+\item[\textbf{1.}] \textbf{4.29}
+
+Let A = $\{\langle R, S \rangle | R \textrm{ and } S \textrm{ are regular expressions and } L(R) \subseteq L(S) \}$. Show that A is decidable. 
+\newline\newline
+\answer{}
+\pagebreak
+
+%------------------------------------------------------------------------------------
+
+\item[\textbf{2.}] \textbf{4.13}
+
+Let $\mathit{C}_{CFG}$ = $\{\langle G, k \rangle | G \textrm{ is a CFG and } L(G) \textrm{ contains exactly \textit{k} strings where \textit{k}} \geq 0 \textrm{ or } k = \infty \}$. Show that $\mathit{C}_{CFG}$ is decidable. 
+\newline\newline
+\answer{}
+
+\pagebreak
+
+
+%------------------------------------------------------------------------------------
+
+
+\item[\textbf{3.}] \textbf{5.4} \\
+If $A \leq_{m} B$ and $B$ is a regular language, does that imply that $A$ is a regular language? Why or why not?
+\newline\newline
+\answer{}
+
+\pagebreak
+
+
+%------------------------------------------------------------------------------------
+
+\item[\textbf{4.}] \textbf{5.28} \\
+Consider the problem of determining whether a single-tape Turing machine ever writes a blank symbol over a nonblank symbol during the course of its computation on any input string. Formulate this problem as a language and show that it is undecidable. 
+\newline\newline
+\answer{}
+
+\pagebreak
+
+
+%------------------------------------------------------------------------------------
+
+\item[\textbf{5.}] \textbf{5.18b} \\
+Use Rice's theorem, which appears in Problem 5.16, to prove the undecidability of each of the following languages. 
+\begin{enumerate}[(b)]
+\item $\{ \langle M \rangle | M \textrm{ is a } \textsc{TM} \textrm{ and } \textsc{1011} \in L(M)\}.$
+\newline\footnote{For reference: \textbf{Rice's theorem:} Any nontrivial property about the language recognized by a Turing machine is undecidable. \newline A property about Turing machines can be represented as the language of all Turing machines, encoded as strings, that satisfy that property. The property P is about the language recognized by Turing machines if whenever L(M)=L(N) then P contains (the encoding of) M iff it contains (the encoding of) N. The property is non-trivial if there is at least one Turing machine that has the property, and at least one that hasn't. 
+\newline\newline \textbf{Proof: } Without limitation of generality we may assume that a Turing machine that recognizes the empty language does not have the property P. For if it does, just take the complement of P. The undecidability of that complement would immediately imply the undecidability of P.\newline\newline In order to arrive at a contradiction, suppose P is decidable, i.e. there is a halting Turning machine B that recognizes the descriptions of Turing machines that satisfy P. Using B we can construct a Turning machine A that accepts the language $\{(M,w)| M$ is the description of a Turing machine that accepts the string $w\}$. As the latter problem is undecidable this will show that B cannot exists and P must be undecidable as well.
+\newline\newline Let MP be a Turing machine that satisfies P (as P is non-trivial there must be one). Now A operates as follows: 
+\newline 
+\begin{enumerate}[1.]
+    \item On input (M,w), create a (description of a) Turing machine C(M,w) as follows:
+    \begin{enumerate}
+        \item On input x, let the Turing machine M run on the string w until it accepts (so if it doesn't accept C(M,w) will run forever).
+        \item Next run MP on x. Accept iff MP does.
+    \end{enumerate}
+
+    Note that C(M,w) accepts the same language as MP if M accepts w; C(M,w) accepts the empty language if M does not accept w. 
+Thus if M accepts w the Turing machine C(M,w) has the property P, and otherwise it doesn't.
+\item Feed the description of C(M,w) to B. If B accepts, accept the input (M,w); if B rejects, reject.
+\end{enumerate}}
+\end{enumerate}
+\answer{}
+
+\pagebreak
+
+
+%------------------------------------------------------------------------------------
+
+%just ignore this, I'll probably delete it just want to copy it over somewher else first 
+
+\item[\textbf{X.}] \textbf{None} \\
+Algorithm template
+
+\begin{algorithm}
+\begin{algorithmic}[1]
+    \State Summary: maintain a current \textit{subtour} $\tau$ on a subset of $V$, then expand it to include all nodes in $G$
+    
+    \Statex
+    \Function{TSP-Local-Merge}{complete, undirected graph $G = (V,E,\ell)$ with metric distance}
+        \State $\tau \gets [v_1, v_2]$ where $v_1$ and $v_2$ are the closest pair of nodes in $G$
+        
+        \While{$|\tau| < |V|$}
+            \State $v_j \gets$ the node in $V \setminus \tau$ that is closest to any node $v_i$ in $\tau$
+            \State $v_k \gets$ the node that follows $v_i$ in $\tau$.
+            \State Modify $\tau$ by replacing $v_i, v_k$ with $v_i, v_j, v_k$
+        \EndWhile
+    \EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+\answer{ignore}
+\pagebreak
+
+\end{enumerate}

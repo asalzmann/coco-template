@@ -1,0 +1,83 @@
+\newif\iffull
+
+\fulltrue
+
+\documentclass[11pt]{article}
+\usepackage{coco}
+\usepackage[english]{babel}
+\usepackage{tabu}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\newenvironment{centeredtikz}{\begin{center}\begin{tikzpicture}}{\end{tikzpicture}\end{center}}
+\usepackage{algorithm} % Boxes/formatting around algorithms
+\usepackage[noend]{algpseudocode} % Algorithms
+\usepackage{amsmath}
+
+\iffull
+%\usepackage{ntheorem}
+%\usepackage{cleveref}
+\newtheorem{theorem}{Theorem}%[section]
+\newtheorem{observation}[theorem]{Observation}
+
+%\crefname{theorem}{Theorem}{Theorems}
+%\crefname{observation}{Observation}{Observations}
+\fi
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=blue,
+}
+
+\newcommand{\abs}[1]{\ensuremath{\left|#1\right|}}
+\newcommand{\norm}[2][]{\ensuremath{\Vert #2 \Vert_{#1}}}
+
+
+%Parentheses
+\renewcommand{\t}{\textsc{True}}
+\newcommand{\f}{\textsc{False}}
+\newcommand{\ina}[1]{\left<#1\right>}
+\newcommand{\inb}[1]{\left\{#1\right\}}
+\newcommand{\inp}[1]{\left(#1\right)}
+\newcommand{\insq}[1]{\left[#1\right]}
+
+\newcommand{\ket}[1]{\lvert #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 \vert}
+\newcommand{\ketbra}[1]{| #1 \rangle \langle #1 |}
+
+\urlstyle{same} %same
+\newcommand{\answer}[1]{{\color{blue} \smallskip\textbf{Solution:} #1}}
+
+
+\def\title{Assignment 3}
+
+\begin{document}
+\maketitle
+
+\paragraph{Assignments:}
+\begin{itemize}
+\item {\em Mandatory exercises}: Sipser: 4.29, 4.13, 5.4, 5.28, 5.18b
+\item {\em Optional exercises}:  Sipser: 4.24, 4.19, 5.33, 5.16
+\end{itemize}
+
+\paragraph{Homework Policy:}
+Homework assignments will be made available each Monday. Each assignment covers the material from Tuesday and Thursday the same week. Homework is due on the following Monday at 9:00 am. Each assignment should be done in groups of size three; deviation from this needs approval by the course organizer (Christian Wulff-Nilsen). Each assignment must be handed in electronically using Absalon in the form of a single PDF. Drawings may be scanned. Text should ideally be typed; the graders have the right to ignore any scanned text that they find to be less than perfectly readable. The PDF should contain the entire hand-in, and also the names of the students in the group and the assignment number. Please also leave sufficient margin space for potential notes (3cm should be sufficient).
+
+Homework will be graded as pass or fail. 5 out of the 7 weekly assignments must receive a pass grade in order to qualify for the exam. If an assignment is handed in on time, but does not receive a pass grade, it may be possible to hand in again the questions that were judged to be incorrect, provided that the original hand-in constitutes an actual attempt at solving the exercises. The deadline for rehand-in is a week after the original hand-in deadline.
+
+Due to the exam regulations of the university, it is possible that it will be necessary to receive all hand-ins and rehand-ins before the end of the course. Thus, if you find yourself relying on the 7th assignment to be able to take the exam, you should be aware that you may not have a full week in which to do it. It is not likely to be possible to rehandin assignment 7.
+
+Feedback on the homework assignment will be given via Absalon.
+
+
+
+\newpage
+\section*{Due Monday, February 26, at 9:00am} 
+
+\input{hw3-body.tex}
+
+\end{document}
+
